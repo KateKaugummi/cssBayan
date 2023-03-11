@@ -1,0 +1,59 @@
+body {
+    font-family: 'Poppins', sans-serif;
+}
+.meme-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    }
+
+h1 {
+    color: red;
+    font-size: 42px;
+    font-weight: bold;
+}
+   
+input {
+    position: absolute;
+    opacity: 0;
+    z-index: -1;
+  }
+.accordion {
+    margin: 20px;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 4px 4px -2px rgba(75, 49, 49, 0.5);
+  }
+.accordion-label {
+    display: flex;
+    justify-content: space-between;
+    padding: 1em;
+    font-weight: bold;
+    font-size: 1.5rem;
+    cursor: pointer;
+    background: red;
+    color: #fff;
+  }
+  .accordion-label::after {
+    content: "\2192";
+    width: 1em;
+    height: 1em;
+    text-align: center;
+    transition: all .35s;
+  }
+
+.accordion-content {
+    max-height: 0;
+    padding: 0 1em;
+    background: white;
+    transition: all 0.35s;
+  }
+input:checked ~ .accordion-content {
+    max-height: 100vh;
+    padding: 1em;
+  }
+
+input:checked + .accordion-label::after {
+    transform: rotate(90deg);
+}
