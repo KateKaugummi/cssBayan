@@ -2,12 +2,19 @@ body {
   font-family: 'Poppins', sans-serif;
   background-image: url(assets/img/background.jpg);
 }
+
+.wrapper {
+display: flex;
+justify-content: center;
+}
+
 .meme-section {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
   margin-bottom: 100px;
+  /* width: 800px; */
   }
 
 h1 {
@@ -18,11 +25,7 @@ h1 {
   margin-top: 40px;
 }
 
-input {
-  position: absolute;
-  opacity: 0;
-  z-index: -1;
-}
+
 .accordion {
   margin: 20px;
   border-radius: 5px;
@@ -30,12 +33,7 @@ input {
   box-shadow: 0 4px 4px -2px rgba(75, 49, 49, 0.5);
   width: 800px;
 }
-.accordion:focus {
-  color: black;
-} 
-.accordion:focus:active {
-  color: pink;
-}
+
 
 .accordion-label {
   display: flex;
@@ -48,39 +46,42 @@ input {
   color: rgb(223, 237, 202);
 }
 
-.accordion-label:hover::after {
-  content: "\2192";
-  width: 1em;
-  height: 1em;
-  text-align: center;
-  transition: all .35s;
+.meme-title {
+  transition: all 0.4s;
 }
 
-.accordion-label:hover {
-  color: rgb(184, 245, 92);
+.plus {
+	width: 30px;
+	height: 30px;
+	transition: all 0.4s;
+}
+
+.image {
+  width: 0;
+	height: 0;
+	transition: all 0.4s;
 }
 
 .accordion-content {
-  max-height: 0;
-  padding: 0 1em;
-  background: white;
   transition: all 0.35s;
-}
-
-
-input:checked ~ .accordion-content {
-  max-height: 100vh;
-  padding: 1em;
-}
-
-input:checked + .accordion-label::after {
-  transform: rotate(90deg);
-}
-
-.meme-img {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+	justify-content: center;
+	align-items: center;
+  background: white;
+}
+
+input:checked ~ label .image,
+.accordion:focus .image {
+	width: 60%;
+	height: 60%;
+}
+
+input:checked ~ label .plus {
+  transform: rotate(-45deg);
+}
+
+input:checked ~ label .meme-title {
+  color: rgb(184, 245, 92);
 }
 
 @media (max-width: 820px) {
@@ -121,3 +122,30 @@ h1 {
   width: 260px;
 }
 }
+
+@media (hover: hover) {
+	.accordion:hover .image {
+		width: 60%;
+		height: 60%;
+		padding: 0.8rem 0;
+	}
+
+  .accordion:hover .plus {
+    background: url(assets/icon/plus.svg) center/cover no-repeat;
+  }
+
+  .accordion:hover .plus {
+    transform: rotate(45deg)
+  }
+  .meme-section:hover .meme-title {
+    color: rgb(184, 245, 92);
+  }
+}
+
+@media (hover: none) {
+  .plus {
+    background: url(assets/icon/plus.svg) center/cover no-repeat;
+  }
+}
+
+
