@@ -67,9 +67,10 @@ h1 {
 .accordion-content {
   transition: all 0.35s;
   display: flex;
-	justify-content: center;
-	align-items: center;
+  justify-content: center;
+  align-items: center;
   background: white;
+  cursor: pointer;
 }
 
 input:checked ~ label .image,
