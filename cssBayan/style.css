@@ -119,7 +119,13 @@ h1 {
 
 @media (max-width: 360px) {
 .accordion {
+h1 {
+  font-size: 40px;
+}
   width: 260px;
+}
+.accordion-label {
+  font-size: 0.8rem;
 }
 }
 
